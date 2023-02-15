@@ -12,3 +12,8 @@
   713  ls -al ~
   714  git remote set-url origin git@github.com:proggrammer/java-selenium.git
   715  git push -u origin master
+
+
+
+  triggering jenkins from github - pull/push based
+  https://www.devopsschool.com/blog/how-to-build-when-a-change-is-pushed-to-github-in-jenkins/
