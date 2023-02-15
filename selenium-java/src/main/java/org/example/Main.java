@@ -11,7 +11,8 @@ public class Main {
     public static void main(String[] args) {
         System.setProperty("webdriver.chrome.driver", "/Users/kapil.rajak/Downloads/chromedriver_mac_arm64/chromedriver");
         WebDriver driver = new ChromeDriver();
-        System.out.println("Login Success:"+loginSuccess(driver, "tomsmith", "SuperSecretPassword!"));
+        //System.out.println("Login Success:"+loginSuccess(driver, "tomsmith", "SuperSecretPassword!"));
+        checkBoxes(driver);
         driver.quit();
     }
 
@@ -31,5 +32,13 @@ public class Main {
         WebElement successMessage = driver.findElement(By.xpath("//div[contains(.,'Welcome to the Secure Area')]"));
         String successMsgs = successMessage.getText();
         return "Welcome to the Secure Area. When you are done click logout below.".equalsIgnoreCase(successMsgs);
+    }
+    private static boolean checkBoxes(WebDriver driver) {
+        driver.get("http://localhost:7080/checkboxes");
+        WebElement checkbox = driver.findElement(By.id("checkboxes"));
+        WebElement elementInConcern = checkbox.findElement(By.cssSelector("input[type='checkbox']"));
+// Check the checkbox
+        elementInConcern.click();
+        return true;
     }
 }
